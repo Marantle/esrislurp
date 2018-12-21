@@ -90,7 +90,7 @@ module.exports = function(basePath, version, beautify, onSuccess, onError, onPro
         }
 
         // likely a 404, resume next by exiting on the callback
-        if (!body) {
+        if (response.statusCode == 404) {
           signalProgressUpdate();
           return callback(null, body);
         }
